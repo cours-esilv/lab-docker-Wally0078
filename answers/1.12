@@ -1,0 +1,3 @@
+docker run -d --name back-container app
+docker run -d --name front-container -e WS_BACK_URL="http://$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' back-container):5000" my-front-image
+
